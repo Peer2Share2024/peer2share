@@ -35,90 +35,49 @@ const SignUpForm = () => {
     //map all of the fields with our formSchema 
    const form = useForm<z.infer<typeof formSchema>>({
     //revalidate data based on the chandes on form
-    resolver:zodResolver(formSchema)
+    resolver:zodResolver(formSchema),
+    defaultValues:{
+        email:"",
+        universityName:"",
+        password:"",
+        passwordConfirm:"",
+    }
    })
 
   return (
     <div className="space-y-4">
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-4">
-                
-{/*                 <FormField control={form.control} name="email" render={({field})=>{
-                    return <FormItem>
-                        <FormMessage>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl> 
-                                <Input placeholder="mail@example.com" type="email" {...field}/>
-                            
-                            </FormControl>
-                        </FormMessage>
-                    </FormItem>
-                }}/>
-                
+            
+            <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                    <Input placeholder="mail@example.com" type='email' {...field} />
+                    </FormControl>
 
-                <FormField control={form.control} name="universityName" render={({field})=>{
-                    return <FormItem>
-                        <FormMessage>
-                            <FormLabel>University Name</FormLabel>
-                            <FormControl> 
-                                <Input placeholder="TEDU" type="name" {...field}/>
-                            </FormControl>
-                        </FormMessage>
-                    </FormItem>
-                }}/>
+                    <FormMessage />
+                </FormItem>
+                )}
+            />
 
-
-                <FormField
-                    control={form.control}
-                    name="accountType"
-                    render={({ field }) => {
-                    return (
-                        <FormItem>
-                            <FormLabel>Email address</FormLabel>
-                            <Select onValueChange={field.onChange}>
-                        <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select an account type" />
-                        </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                            <SelectItem value="student">Student</SelectItem>
-                            <SelectItem value="teacher">Teacher</SelectItem>
-                        </SelectContent>
-                    </Select>
-                        <FormMessage />
-                    </FormItem>
-                    );
-                     }}
-                /> */}
-
-
-
-                <FormField control={form.control} name="password" render={({field})=>(
-                     <FormItem>
-                        <FormMessage>
-                            <FormLabel>Password</FormLabel>
-                            <FormControl> 
-                                <Input placeholder="Password" type="password" {...field}/>
-                            </FormControl>
-                        </FormMessage>
-                    </FormItem>
-                 )}/>
-
-                <FormField control={form.control} name="passwordConfirm" render={({field})=>(
-                     <FormItem>
-                        <FormMessage>
-                            <FormLabel>Password Confirm</FormLabel>
-                            <FormControl> 
-                                <Input placeholder="Password Again" type="password" {...field}/>
-                            </FormControl>
-                        </FormMessage>
-                    </FormItem>
-                )}/>
-
-
-
-                //do like this 
+            <FormField
+                control={form.control}
+                name="universityName"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel>University Name</FormLabel>
+                    <FormControl>
+                    <Input placeholder="TEDU" type='name' {...field} />
+                    </FormControl>
+                    <FormMessage />
+                </FormItem>
+                )}
+            />
+            
         <FormField
             control={form.control}
             name="password"
@@ -134,9 +93,46 @@ const SignUpForm = () => {
             )}
             />
 
+        <FormField
+            control={form.control}
+            name="passwordConfirm"
+            render={({ field }) => (
+            <FormItem>
+                <FormLabel>Confirm Password</FormLabel>
+                <FormControl>
+                <Input placeholder="Password" type='password' {...field} />
+                </FormControl>
+
+                <FormMessage />
+            </FormItem>
+            )}
+            />        
+
+            <FormField
+                    control={form.control}
+                    name="accountType"
+                    render={({ field }) => {
+                    return (
+                        <FormItem>
+                            <FormLabel>Account Type</FormLabel>
+                            <Select onValueChange={field.onChange}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder="Select an account type" />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                            <SelectItem value="student">Student</SelectItem>
+                            <SelectItem value="teacher">Teacher</SelectItem>
+                        </SelectContent>
+                    </Select>
+                        <FormMessage />
+                    </FormItem>
+                    );
+                     }}
+                /> 
 
                 <Button type="submit" className="w-full">Sign Up</Button>
-
 
             </form>
             
