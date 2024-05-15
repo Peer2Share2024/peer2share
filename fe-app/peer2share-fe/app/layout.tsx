@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen bg-background font-sans antialiased",inter.variable)}>
-        <main className="h-screen flex flex-col justify-center items-center">
+        <main className="h-screen flex flex-col overflow-y-auto">
           <Navbar/>
           {children}
         </main>
