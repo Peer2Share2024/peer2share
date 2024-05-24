@@ -1,4 +1,6 @@
 import React, {FC, ReactNode } from 'react'
+import Home from '../(home)/page';
+import Navbar from '@/components/ui/navbar';
 
 interface AuthLayoutProps{
     children:ReactNode;
@@ -6,7 +8,11 @@ interface AuthLayoutProps{
 
 const AuthLayout: FC<AuthLayoutProps> = ({children}) => {
   return (
-    <div className='bg-slate-200 p-10 rounded-md'>{children}</div>
+    <div>
+        <Navbar></Navbar>
+        <Home></Home>
+        {children} 
+    </div>
   )
 }
 
