@@ -19,7 +19,12 @@ const navbar = () => {
             <Link href='/login' className="hover:text-mycolor mr-6">Login</Link>
           </li>
           <li>
-            <Link className={buttonVariants({variant:"myprimary"})} href='/sign-up'>Sign up for free</Link>
+          <Link 
+        className={`${buttonVariants({variant: "myprimary"})} hover:bg-blue-500 hover:text-white`} 
+        href='/sign-up'
+      >
+        Sign up for free
+      </Link>
           </li>
         </ul>
       </div>

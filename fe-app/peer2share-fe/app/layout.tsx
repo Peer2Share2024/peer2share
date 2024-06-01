@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn("min-h-screen bg-background font-sans antialiased",inter.variable)}>
         <main className="h-screen flex flex-col overflow-y-auto">
+          
           {children}
         </main>
       </body>
