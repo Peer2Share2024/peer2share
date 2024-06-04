@@ -17,13 +17,13 @@ export const SIDENAV_ITEMS: SideNavItemGroup[] = [
         title: "Manage",
         menuList: [
             {
-                title: 'Products',
-                path: '/products',
+                title: 'Notes',
+                path: '/notes',
                 icon: <BsKanban size={20} />,
                 submenu: true,
                 subMenuItems: [
-                    { title: 'All', path: '/products' },
-                    { title: 'New', path: '/products/new' },
+                    { title: 'All', path: '/allNotes' },
+                    { title: 'New', path: '/notes/new' },
                 ],
             },
             

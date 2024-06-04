@@ -12,10 +12,10 @@ import { Courses } from '@/types/type'
 const data: Courses[] = [
 
     {
-        notename: "sorting",
-        coursename: "algo2",
+        notename: "Sorting Algorithms",
+        coursename: "CMPE223",
         university: "TEDU",
-        faculity: "Engineering",
+        faculity: "Computer Engineering",
         numberoflikes: 1905
 
     },
@@ -23,7 +23,7 @@ const data: Courses[] = [
         notename: "Supervised ML",
         coursename: "Intro to ML",
         university: "TEDU",
-        faculity: "Engineering",
+        faculity: "Computer Engineering",
         numberoflikes: 1905
 
     }
