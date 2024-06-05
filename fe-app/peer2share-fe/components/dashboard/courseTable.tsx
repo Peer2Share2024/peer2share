@@ -2,63 +2,66 @@
 
 import * as React from "react"
 import {
-    ColumnDef
+  ColumnDef
 } from "@tanstack/react-table"
 
 import { DataTable } from "@/components/ui/data-table"
-import { Courses } from '@/types/type'
+import { Notes } from '@/types/type'
+
+import { getNotes } from "../services/getAllNotes"
+import { error } from "console"
 
 
-const data: Courses[] = [
 
-    {
-        notename: "Sorting Algorithms",
-        coursename: "CMPE223",
-        university: "TEDU",
-        faculity: "Computer Engineering",
-        numberoflikes: 1905
 
-    },
-    {
-        notename: "Supervised ML",
-        coursename: "Intro to ML",
-        university: "TEDU",
-        faculity: "Computer Engineering",
-        numberoflikes: 1905
 
-    }
+export const columns: ColumnDef<Notes>[] = [
+  {
+    accessorKey: "id",
+    header: "id"
+  },
+  {
+    accessorKey: "name",
+    header: "Course Name"
+  },
+  {
+    accessorKey: "description",
+    header: "Description"
+  },
+  {
+    accessorKey: "university",
+    header: "University"
+  },
+  {
+    accessorKey: "date",
+    header: "createdAt"
+  },
+  {
+    accessorKey: "averageRating",
+    header: "Average Rating"
+  }
 ]
 
 
-export const columns: ColumnDef<Courses>[] = [
-    {
-        accessorKey:"notename",
-        header:"Note Name"
-      },
-      {
-        accessorKey:"coursename",
-        header:"Course Name"
-      },
-      {
-        accessorKey:"university",
-        header:"University"
-      },
-      {
-        accessorKey:"faculity",
-        header:"Faculity"
-      },
-      {
-        accessorKey:"numberoflikes",
-        header:"Num Of Likes"
-      }
-]
+export function CourseTables() {
+
+  const [notes, setNotes] = React.useState([])
 
 
-export function CourseTables(){
-    return (
-        <div className="w-full">
-          <DataTable data={data} columns={columns} ></DataTable>
-        </div>
-      )
-    
+  React.useEffect(() => {
+    getNotes().then(data => {
+      setNotes(data);
+    }).catch(error => {
+      console.error('Error fetching items:', error);
+    });
+  }, []);
+
+
+  console.log(notes)
+  return (
+    <div className="w-full">
+      <DataTable data={notes} columns={columns} ></DataTable>
+    </div>
+  )
+
 }

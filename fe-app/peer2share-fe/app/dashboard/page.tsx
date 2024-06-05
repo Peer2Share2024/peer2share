@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -5,15 +6,31 @@ import { CourseTables } from "@/components/dashboard/courseTable";
 import { Button } from "@/components/ui/button";
 
 
+import { getNotes } from "@/components/services/getAllNotes";
+
+
+
 
 function page() {
+
+    const [notes, setNotes] = React.useState([])
+
+
+  React.useEffect(() => {
+    getNotes().then(data => {
+      setNotes(data);
+    }).catch(error => {
+      console.error('Error fetching items:', error);
+    });
+  }, []);
+  
     return (
         <>
             <Card className="">
                 <CardHeader>
                     <CardTitle>Course Notes</CardTitle>
                     <CardDescription>
-                        There are {1905} .pdf notes on Peer2Share
+                        There are {notes} .pdf notes on Peer2Share
                     </CardDescription>
                 </CardHeader>
                 <CardContent>

@@ -11,11 +11,16 @@ export type SideNavItem = {
     menuList: SideNavItem[]
   }
 
-  export type Courses = {
-    notename: string
-    coursename: string
+  export type Notes = {
+
+    count: number
+    homeworks?: Homeworks[];
+  }
+
+  export type Homeworks = {
+    id: number
+    name: string
     university: string
     faculity: string
     numberoflikes: number
-
   }

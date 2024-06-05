@@ -31,28 +31,27 @@ export default function NotePage({ notename }: any) {
 
                 <Card style={{ width: '30%'}}>
                     <CardHeader>
-                        <CardTitle>Card Title1 {notename}</CardTitle>
-                        <CardDescription>Card Description</CardDescription>
+                        <CardTitle>Sorting Algorithms</CardTitle>
+                        
                     </CardHeader>
                     <CardContent>
-                        <p>Card Content1</p>
+                        <p>Here is the link for course note</p>
                     </CardContent>
                     <CardFooter>
-                        <p>Card Footer1</p>
+                        <a>Download</a>
                     </CardFooter>
                 </Card>
 
                 <Card style={{ width: '30%'}}>
                     <CardHeader>
-                        <CardTitle>Card Title2 {notename}</CardTitle>
-                        <CardDescription>Card Description</CardDescription>
+                        <CardTitle>Lecture Note Info</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p>Card Content2</p>
+                        <p>Note Name: Sorting Algorithms</p>
+                        <p>Course Name: CMPE223</p>
+                        <p>Rating: 9</p>
                     </CardContent>
-                    <CardFooter>
-                        <p>Card Footer2</p>
-                    </CardFooter>
+                    
                 </Card>
             </div>
 
@@ -68,10 +67,10 @@ export default function NotePage({ notename }: any) {
                 </TableHeader>
                 <TableBody>
                     <TableRow>
-                        <TableCell className="font-medium">INV001</TableCell>
-                        <TableCell>Paid</TableCell>
-                        <TableCell>Credit Card</TableCell>
-                        <TableCell className="text-right">$250.00</TableCell>
+                        <TableCell className="font-medium">Murat Kaan</TableCell>
+                        <TableCell>9</TableCell>
+                        <TableCell>Very Helpful!! Thank a lot!</TableCell>
+                        <TableCell className="text-right">2</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
